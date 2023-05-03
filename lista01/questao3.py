@@ -1,0 +1,1 @@
+print("Par") if ((int(input("numero ->")) % 2) == 0) else print("Impar")
