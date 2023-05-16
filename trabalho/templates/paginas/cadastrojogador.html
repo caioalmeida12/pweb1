@@ -1,0 +1,15 @@
+{% extends "base.html" %} {% block content %}
+<h1>Cadastro jogador</h1>
+<form method="POST" action="/cadastro/jogador">
+    <label for="nome_jogador">Nome do Jogador:</label>
+    <input type="text" id="nome_jogador" name="nome_jogador" required />
+    <br />
+    <label for="posicao">Posição:</label>
+    <input type="text" id="posicao_jogador" name="posicao_jogador" required />
+    <br />
+    <label for="posicao">ID do time em que joga:</label>
+    <input type="text" id="id_time" name="id_time" required />
+    <br />
+    <input type="submit" value="Cadastrar Jogador" />
+</form>
+{% endblock %}

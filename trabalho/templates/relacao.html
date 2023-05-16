@@ -1,0 +1,32 @@
+<div class="relacao">
+  <h2>
+    Relação de times atuais
+</h2>
+        <table>
+            <tr>
+                <th>Id do Time</th>
+                <th>Nome do Time</th>
+                <th>Cidade</th>
+                <th>Jogadores</th>
+                <th>Resultados</th>
+            </tr>    
+            {% for time in dbTimes %}
+<tr>
+  <td>{{ time.id }}</td>
+  <td>{{ time.nome }}</td>
+  <td>{{ time.cidade }}</td>
+  <td>
+    {%for jogador in time.jogadores%} {{ jogador}} <br />
+    {% endfor %}
+  </td>
+  <td>
+    {%for resultado in time.resultados%} {{ resultado}} <br />
+    {% endfor %}
+  </td>
+</tr>
+{% endfor %}   
+        </table>
+</h2>
+
+
+</div>
