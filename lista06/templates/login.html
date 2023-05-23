@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+
+{% if sucesso is not none %}
+    <p id="mensagem_sucesso">{{ sucesso }}</p>
+{% endif %}
+
+<h1>Entrar no Sistema</h1>
+
+<form action="{{ url_for('login') }}" method="POST">
+    <label for="usuario">Usuario</label>
+    <input type="text" name="usuario" /> <br/>
+    <label for="senha">Senha</label>
+    <input type="password" name="senha" /> <br/>
+    <input type="submit" value="Entrar">
+</form>
+
+{% endblock %}
