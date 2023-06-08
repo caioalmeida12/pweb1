@@ -30,9 +30,9 @@ def editarproduto(id):
     
     return produtoController.update(id, None)
 
-# @app.route('/excluir-produto/<id>')
-# def excluirproduto(id):
-#     return render_template('paginas/excluir-produto.html')
+@app.route('/excluir-produto/<id>', methods=["GET", "POST"])
+def excluirproduto(id):
+    return produtoController.delete(id)
 
 if __name__ == '__main__':
     app.run(debug = True)

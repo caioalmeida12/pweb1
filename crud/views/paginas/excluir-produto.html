@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block content %}
+<h1>Editar produto</h1>
+
+<form action="/excluir-produto/" method="POST">
+    <label for="id">ID:</label>
+    <input type="text" name="id" id="id">
+    <br> 
+    <input type="submit" value="Cadastrar">
+</form>
+
+<script>
+    const form = document.querySelector("form")
+    const id = form.querySelector("#id")
+    
+    form.addEventListener("change", ()=>{
+        if(id.value != ""){
+            form.action = "/excluir-produto/" + id.value
+        }
+    })
+</script>
+{% endblock %}

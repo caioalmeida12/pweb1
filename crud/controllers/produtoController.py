@@ -35,4 +35,16 @@ def update(id, form):
     return redirect('/ver-produto/' + str(produto.id))
 
 def delete(id):
-    return render_template('../paginas/excluir-produto.html')
+    #  Caso seja uma requisição GET, retorna o formulário
+    if id == "None":
+        return render_template('paginas/excluir-produto.html') 
+
+    # Caso seja uma requisição POST, deleta o produto
+    produto = Produto.delete(id)
+        
+    # Redireciona para o formulario caso não exista o produto
+    if produto is None:
+        return jsonify({'erro': 'Produto não encontrado'})
+    
+    
+    return redirect('/produtos/')

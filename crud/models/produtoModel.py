@@ -34,3 +34,10 @@ class Produto:
             if produto.id == id:
                 return produto
         return None
+    
+    def delete(id): 
+        for produto in dbProdutos:
+            if produto.id == id:
+                dbProdutos.remove(produto)
+                return produto
+        return None
