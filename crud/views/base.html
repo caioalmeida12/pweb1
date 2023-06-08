@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD produtos</title>
+
+    <style>
+      body{
+        font-family: sans-serif;
+        padding: 32px 64px;
+      }
+
+      .menu{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding-block: 16px;
+        font-weight: bold;
+      }
+
+      .menu a{
+        text-decoration: none;
+        color: black
+
+      }
+
+      .relacao{
+        padding-block: 16px;
+      }
+
+      .relacao td,
+      .relacao th{
+        padding: 8px;
+      }
+
+      .relacao td{
+        line-height: 2;
+      }
+
+      .relacao tr:nth-child(2n){
+        background: #eee;
+      }
+
+      form input{
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-top: 8px;
+      }
+
+  </style>
+  </head>
+
+  <body>
+    {%include "menu.html"%} 
+    {%block content%} 
+    {%endblock%}
+    {%include "rodape.html"%}
+</body>
+</html>
