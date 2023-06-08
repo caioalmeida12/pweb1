@@ -1,0 +1,19 @@
+{% extends "base.html" %} {% block content %}
+<h1>Cadastro de produto</h1>
+
+<form action="/cadastro-produtos" method="POST">
+    <label for="id">ID:</label>
+    <input type="text" name="id" id="id">
+    <br>
+    <label for="nome">Nome:</label>
+    <input type="text" name="nome" id="nome">
+    <br>
+    <label for="descricao">Descrição:</label>
+    <input type="text" name="descricao" id="descricao">
+    <br>
+    <label for="preco">Preço:</label>
+    <input type="text" name="preco" id="preco">
+    <br> 
+    <input type="submit" value="Cadastrar">
+</form>
+{% endblock %}

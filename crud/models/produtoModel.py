@@ -6,10 +6,11 @@ class Produto:
         self.nome = nome
         self.descricao = descricao
         self.preco = preco
+        self.save()
         
     def __repr__(self):
-        return '<Produto %r>' % self.nome
-    
+        return str(self.__dict__)
+        
     def validate(self):
         if self.nome is None or self.nome == '':
             return False
