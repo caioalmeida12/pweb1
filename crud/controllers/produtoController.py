@@ -1,10 +1,11 @@
-from flask import render_template, request, redirect, url_for
+from flask import render_template
+from models.produtoModel import Produto
 
 def findAll():
-    return render_template('../paginas/produtos.html')
+    return render_template('paginas/produtos.html', produtos = Produto.findAll());
 
 def findOne(id):
-    return render_template('../paginas/ver-produto.html')
+    return render_template('paginas/ver-produto.html', produtos = Produto.findOne(id));
 
 def create(form):
     # Caso seja uma requisição POST

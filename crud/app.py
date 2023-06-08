@@ -1,15 +1,16 @@
-from flask import Flask, render_template, request
-from controllers import indexController, produtoController;
+from flask import Flask
+from controllers import indexController, produtoController
 
 app = Flask(__name__, template_folder="views")
+dbProdutos = []
 
 @app.route('/')
 def index():
     return indexController.get()
 
-# @app.route('/produtos/')
-# def produtos():
-#     produtoController.findAll()
+@app.route('/produtos/')
+def produtos():
+    return produtoController.findAll()
     
 # @app.route('/cadastro-produtos', methods=["GET", "POST"])
 # def cadastroprodutos():
@@ -28,4 +29,4 @@ def index():
 #     return render_template('paginas/excluir-produto.html')
 
 if __name__ == '__main__':
-    app.run(debug=True, host="0.0.0.0")
+    app.run(debug = True)
