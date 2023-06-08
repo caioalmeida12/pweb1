@@ -1,0 +1,16 @@
+<form action="/editar-produto" method="POST">
+    <input type="text" placeholder="id" name="id">
+    <input type="text" placeholder="nome" name="nome">
+    <input type="text" placeholder="descricao" name="descricao">
+    <input type="text" placeholder="preco" name="preco">
+    <input type="submit" value="Editar">
+</form>
+
+<script>
+    const form = document.querySelector("form")
+    const id = form.querySelector("input[name=id]")
+
+    form.addEventListener("change", ()=>{
+        form.action = `/editar-produto/${id.value}`
+    })
+</script>
