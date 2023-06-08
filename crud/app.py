@@ -23,9 +23,12 @@ def cadastroprodutos():
 def verproduto(id):
     return produtoController.findOne(id)
 
-# @app.route('/editar-produto/<id>')
-# def editarproduto(id):
-#     return render_template('paginas/editar-produto.html')
+@app.route('/editar-produto/<id>', methods=["GET", "POST"])
+def editarproduto(id):
+    if request.method == "POST":
+        return produtoController.update(id, request.form)
+    
+    return produtoController.update(id, None)
 
 # @app.route('/excluir-produto/<id>')
 # def excluirproduto(id):

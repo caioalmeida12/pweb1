@@ -1,4 +1,4 @@
-from flask import redirect, render_template
+from flask import jsonify, redirect, render_template
 from models.produtoModel import Produto
 
 def findAll():
@@ -17,7 +17,22 @@ def create(form):
     return redirect('/ver-produto/' + str(produto.id))
 
 def update(id, form):
-    return render_template('../paginas/editar-produto.html')
+    # Caso seja uma requisição GET, retorna o formulário
+    if form is None:
+        return render_template('paginas/editar-produto.html')
+    
+    # Caso seja uma requisição POST, atualiza o produto
+    produto = Produto.findOne(id)
+        
+    # Redireciona para o formulario caso não exista o produto
+    if produto is None:
+        return jsonify({'erro': 'Produto não encontrado'})
+    
+    produto.nome = form['nome']
+    produto.descricao = form['descricao']
+    produto.preco = form['preco']
+    
+    return redirect('/ver-produto/' + str(produto.id))
 
 def delete(id):
     return render_template('../paginas/excluir-produto.html')
