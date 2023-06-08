@@ -5,7 +5,7 @@ def findAll():
     return render_template('paginas/produtos.html', produtos = Produto.findAll());
 
 def findOne(id):
-    return render_template('paginas/ver-produto.html', produtos = Produto.findOne(id));
+    return render_template('paginas/ver-produto.html', produto = Produto.findOne(id));
 
 def create(form):
     # Caso seja uma requisição POST

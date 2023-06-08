@@ -16,9 +16,9 @@ def produtos():
 # def cadastroprodutos():
 #     produtoController.create(request.form)
     
-# @app.route('/ver-produto/<id>')
-# def verproduto(id):
-#     return render_template('paginas/ver-produto.html')
+@app.route('/ver-produto/<id>')
+def verproduto(id):
+    return produtoController.findOne(id)
 
 # @app.route('/editar-produto/<id>')
 # def editarproduto(id):
