@@ -1,0 +1,26 @@
+{%include "menu.html" %}
+<form action={{rota}} method="post">
+    <input type="text" name="id" placeholder="id">
+    <input type="text" name="nome" placeholder="nome">
+    <input type="text" name="descricao" placeholder="descricao">
+    <input type="text" name="preco" placeholder="preco">
+    <input type="submit" value="enviar">
+</form>
+
+<script>
+    const form = document.querySelector("form")
+    const id = form.querySelector("input[name=id]")
+
+    id.addEventListener("change", ()=>{
+        if (form.action.includes("/cadastro-produtos")) return
+        if (form.action.includes("/ver-produto")) {
+            form.action = "/ver-produto/" + id.value
+        }
+        if (form.action.includes("/editar-produto")) {
+            form.action = "/editar-produto/" + id.value
+        }
+        if (form.action.includes("/excluir-produto")) {
+            form.action = "/excluir-produto/" + id.value
+        }
+    })
+</script>
