@@ -1,0 +1,78 @@
+{%include "menu.html" %}
+<br>
+
+<div>
+    <h3>Este formulário é único e deve ser usado da seguinte forma:</h1>
+<ol>
+    <li>Nas páginas de cadastro e edição: <span>preencher todos os campos</span></li>
+    <li>Nas páginas de vizualização única e deletar: <span>preencher apenas o id</span></li>
+</ol>
+</div>
+
+<style>
+    div:has(ol){
+        width: fit-content;
+        margin-inline: auto;
+    }
+
+    span{
+        color: red;
+    }
+
+    form{
+        width: min-content;
+        margin: 0 auto;
+        padding: 32px;
+    }
+
+    input{
+        width: 300px;
+        aspect-ratio: 81 / 9;
+        margin-block: 16px;
+        border: 3px solid black;
+    }
+
+    input[type="submit"]{
+        background-color: green;
+        color: white
+    }
+
+</style>
+
+<form action={{action}} method="POST">
+    <input type="text" name="id" placeholder="id funcionário">
+    <input type="text" name="nome" placeholder="nome funcionário">
+    <input type="text" name="cargo" placeholder="cargo funcionário">
+    <input type="submit" value="enviar">
+</form>
+
+<script>
+    const form = document.querySelector('form');
+    const id = document.querySelector('input[name="id"]');
+    const nome = document.querySelector('input[name="nome"]');
+    const cargo = document.querySelector('input[name="cargo"]');
+    let formDataJson = {};
+
+    <!-- Gerenciar a action -->
+    id.addEventListener("change", ()=>{
+        if (form.action == "/cadastrar-funcionario"){
+            return;
+        }
+
+        if(form.action.includes("/ver-funcionario")){
+            form.action = "/ver-funcionario/" + id.value;
+        }
+
+        if(form.action.includes("/editar-funcionario")){
+            form.action = "/editar-funcionario/" + id.value;
+        }
+
+        if(form.action.includes("/deletar-funcionario")){
+            form.action = "/deletar-funcionario/" + id.value;
+        }
+    })
+
+</script>
+
+se deu erro, aparecerá aqui: <br>
+{{erro}}
