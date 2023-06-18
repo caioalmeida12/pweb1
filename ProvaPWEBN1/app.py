@@ -12,7 +12,7 @@ def index():
 def funcionarios():
     return funcionariosController.get()
 
-@app.route("/ver-funcionario", methods=["GET"])
+@app.route("/ver-funcionario/", methods=["GET"])
 @app.route("/ver-funcionario/<id>", methods=["GET", "POST"])
 def ver_funcionario(id=None):
     if id is None:
@@ -27,7 +27,7 @@ def cadastrar_funcionario():
     
     return funcionariosController.create(request.form)
 
-@app.route("/editar-funcionario", methods=["GET"])
+@app.route("/editar-funcionario/", methods=["GET"])
 @app.route("/editar-funcionario/<id>", methods=["GET", "POST"])
 def editar_funcionario(id=None):
     if request.method == "GET":
@@ -35,7 +35,7 @@ def editar_funcionario(id=None):
     
     return funcionariosController.update(id, request.form)
 
-@app.route("/deletar-funcionario", methods=["GET"])
+@app.route("/deletar-funcionario/", methods=["GET"])
 @app.route("/deletar-funcionario/<id>", methods=["GET", "POST"])
 def deletar_funcionario(id=None):
     if request.method == "GET":
